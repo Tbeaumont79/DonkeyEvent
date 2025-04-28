@@ -1,0 +1,114 @@
+
+:root {
+    --primary : #ed7d32;
+    --Secundary : #a6a6a6;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    background: var(--primary);    
+    height: auto;
+    font-family:Aria, Helvetica, sans-serif;
+    font-size:xx-large;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    height: 100vh;
+    
+
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    
+
+}
+
+section {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    
+
+}
+
+form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+
+
+
+}
+
+input {
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    background-color: var(--Secundary);
+    border-radius: 10px;
+    font-size: x-large;
+    border: none;
+
+
+}
+
+select {
+    border: none;
+    background-color: var(--Secundary) ;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+
+
+
+
+}
+
+::placeholder {
+    color: white;
+    
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: x-large;
+    margin: 0 auto;
+    border: none;
+
+}
+
+p {
+    font-size:small;
+    text-align: center;
+}
+
+h2 {
+    font-size:large;
+    text-align: center;
+    margin-bottom: 30px;
+
+
+}
+
+a {
+    text-decoration:underline;
+    color: rgb(24, 156, 232);
+}
+
