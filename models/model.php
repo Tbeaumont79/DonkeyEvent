@@ -1,13 +1,9 @@
 <?php
 require_once("config/db.php");
-class Model
+class Model extends Db
 {
-    protected $pdo;
-    public function __construct() {
-        $this->setPDO();
-    }
-    private function setPDO()
+    public function __construct()
     {
-        $this->pdo = require_once("config/db.php");
+        parent::__construct();
     }
 }
