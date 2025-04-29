@@ -12,7 +12,7 @@
         <form action="" methode="post">
             <h2>Formulaire d'inscription</h2>
             <input type="email" id="e-mail" name="e-mail" placeholder="Entrer votre e-mail">
-            <input type="text" id="mp" name="mp" placeholder="Votre mot de passe">
+            <input type="password" id="mp" name="password" placeholder="Votre mot de passe">
             <select name="gender" id="gender-select">
                 <option value="">choisissez un genre</option>
                 <option value="male">Homme</option>

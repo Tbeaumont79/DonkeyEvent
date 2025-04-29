@@ -27,7 +27,7 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    color: red;
     
 
 }
@@ -72,10 +72,6 @@ select {
     border-radius: 10px;
     width: 400px;
     margin: 0 auto;
-
-
-
-
 }
 
 ::placeholder {
