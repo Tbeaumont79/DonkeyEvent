@@ -3,6 +3,7 @@
     --primary : #ed7d32;
     --Secundary : #a6a6a6;
 
+
 }
 
 *{
@@ -27,7 +28,7 @@ body {
 
 h1 {
     text-align: center;
-    color: red;
+    color: white;
     
 
 }
@@ -72,10 +73,11 @@ select {
     border-radius: 10px;
     width: 400px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 ::placeholder {
-    color: white;
+    color: rgb(255, 255, 255);
     
 }
 
@@ -107,4 +109,132 @@ a {
     text-decoration:underline;
     color: rgb(24, 156, 232);
 }
+
+.bodyListe {
+    background-color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+
+.container {
+    display: flex;
+    background-color: black;
+    padding: 10px;
+    align-items: center;
+    gap: 100px;
+
+
+
+}
+
+nav {
+    display: flex;
+    flex-grow: 0.5;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+
+}
+
+.user {
+    flex-grow: 2;
+    color: white;
+    font-size: medium;
+    text-align: start;
+    align-items: center;
+
+
+
+}
+
+.lienConnexion {
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+    background-color: rgb(8, 164, 226);
+    padding: 10px;
+
+
+}
+.titre {
+    background-color: var(--primary);
+    padding: 40px 0;
+
+}
+
+.ville {
+    text-align: start;
+    padding: 5px 50px;
+    font-weight: bold;
+}
+
+.container1 {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 20px;
+}
+
+.carte {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(8, 121, 226);
+    border-radius: 50px;
+    padding: 15px 40px;
+    gap: 10px;
+    width: 280px;
+
+}
+
+.titreCarte, .prix, .date, .catégorie {
+    text-align: start;
+
+}
+
+.titreCarte, .prix {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 10px 0;
+
+}
+
+
+.prix, .catégorie, .date {
+    color: rgb(8, 121, 226);
+    
+}
+
+.réserver {
+    font-size: small;
+    background-color: #ed7d32;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin: 0;
+}
+
+.boutonRéserver {
+    display: flex;
+    justify-content: flex-end;
+
+    
+}
+
+
+
+
+
+
+
 
