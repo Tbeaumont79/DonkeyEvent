@@ -18,7 +18,7 @@
                 <option value="male">Homme</option>
                 <option value="female">Femme</option>
             </select>
-            <input type="text" id="nom" name="nom" placeholder="nom">
+            <input type="text"  id="nom" name="nom" placeholder="nom">
             <input type="text" id="Prenom" name="Prenom" placeholder="Prenom">
             <button>Valider</button>
         </form>

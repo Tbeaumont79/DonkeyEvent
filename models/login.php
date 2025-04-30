@@ -38,6 +38,8 @@ class LoginModel extends Model
         if (!password_verify($this->password, $user['password'])) {
             throw new Exception("Invalid username or password");
         }
+        session_start();
+        $_SESSION['user'] = $user;
         return $user;
     }
 }

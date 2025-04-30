@@ -1,4 +1,5 @@
 <?php
+require_once("models/model.php");
 class RegisterModel extends Model
 {
     private $firstname = "";
@@ -47,7 +48,8 @@ class RegisterModel extends Model
         $this->tel = $tel;
     }
 
-    private function setRoleId($role_id) {
+    private function setRoleId($role_id)
+    {
         $this->role_id = $role_id;
     }
 
@@ -81,7 +83,8 @@ class RegisterModel extends Model
         return $this->tel;
     }
 
-    private function getRoleId() {
+    private function getRoleId()
+    {
         $sql = "SELECT role_id FROM users";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
