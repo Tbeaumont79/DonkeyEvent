@@ -5,7 +5,7 @@ USE donkeyevent;
 
 CREATE TABLE roles (
     role_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50)
+    name VARCHAR(50) DEFAULT 'Member'
 );
 
 CREATE TABLE users (
@@ -40,7 +40,7 @@ CREATE TABLE category(
 
 
 CREATE TABLE options (
-  option_id INT,
+  option_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR (255)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE events (
   event_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   city_id INT,
   category_id INT,
-  option_id,
+  option_id INT,
   date_event DATE,
   name VARCHAR(60),
   price FLOAT,
