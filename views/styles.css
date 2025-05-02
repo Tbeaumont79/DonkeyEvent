@@ -26,6 +26,10 @@ body {
 
 }
 
+main {
+    height: 100vh;
+}
+
 h1 {
     text-align: center;
     color: white;
@@ -170,7 +174,7 @@ nav a {
 }
 .titre {
     background-color: var(--primary);
-    padding: 40px 0;
+    padding: 20px 0;
 
 }
 
@@ -231,6 +235,43 @@ nav a {
     
 }
 
+footer {
+    height: 100px;
+    background-color: var(--primary);
+}
+
+.container2 {
+    display: flex;
+    justify-content: flex-start;
+    margin: 40px 20px;
+    flex-direction: row;
+    width: 100%;
+    gap: 400px;
+    
+}
+
+.infos {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 15px 40px;
+    gap: 10px;
+    width: 280px;
+
+}
+
+.infosClient {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 10px 0;
+
+}
+
+.options {
+    display: flex;
+    justify-content: flex-start;
+}
 
 
 
