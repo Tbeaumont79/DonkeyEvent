@@ -56,7 +56,6 @@ h1 {
 
 .find-event-container {
     background-color: rgb(201,199,199) ;
-    width: auto;
     height: 550px;
 }
 
@@ -100,9 +99,48 @@ button {
     margin-left: 190px;
 }
 
-footer {
+.footer-filters {
     background-color: rgb(230,104,37);
     height: 300px;
 }
 
 
+
+.footer-booking {
+    background-color: rgb(230,104,37);
+    height: 50px;
+}
+
+.reservations-container {
+    background-color: rgb(255,255,255);
+    height: 600px;
+}
+
+.h2-and-table {
+    padding: 30px 50px;
+}
+
+
+.h2-and-table h2 {
+    margin-bottom: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+th {
+    color: rgb(91,155,213)
+}
+
+th, td {
+    border: 1px solid ;
+    padding: 12px !important;
+    text-align: left;
+}
+
+.nav-booking {
+    text-decoration: none;
+}
