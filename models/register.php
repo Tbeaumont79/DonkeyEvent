@@ -11,6 +11,7 @@ class RegisterModel extends Model
     private $role_id = 0;
     public function __construct($firstname, $lastname, $password, $gender, $email)
     {
+        parent::__construct();
         $this->setFirstname($firstname);
         $this->setLastname($lastname);
         $this->setPassword($password);
@@ -74,8 +75,6 @@ class RegisterModel extends Model
         return $this->email;
     }
 
-
-
     private function getRoleId()
     {
         $sql = "SELECT role_id FROM users";
@@ -88,10 +87,11 @@ class RegisterModel extends Model
     }
     public function register()
     {
-        print_r("je passe ici 2 : registerModel");
         $hashedPassword = password_hash($this->getPassword(), PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (firstname, lastname, password, gender, email, role_id) VALUES (:firstname, :lastname, :password, :gender, :email, :role_id)";
+
         $stmt = $this->pdo->prepare($sql);
+
         $stmt->execute([
             'firstname' => $this->getFirstname(),
             'lastname' => $this->getLastname(),
@@ -101,7 +101,6 @@ class RegisterModel extends Model
             'role_id' => $this->getRoleId()
         ]);
         $user = $stmt->fetch();
-        print_r('je passe ici 3 : ' . $user);
         if (!$user) {
             throw new Exception("registerModel: Error adding new user");
         }
