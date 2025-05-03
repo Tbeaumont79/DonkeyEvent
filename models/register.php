@@ -78,8 +78,7 @@ class RegisterModel extends Model
             throw new Exception("registerModel: Error adding new role");
         }
         $this->role_id = $this->pdo->lastInsertId();
-        var_dump($this->role_id);
-
+        
         $sql = "INSERT INTO users (firstname, lastname, password, gender, email, role_id) VALUES (:firstname, :lastname, :password, :gender, :email, :role_id)";
         $stmt = $this->pdo->prepare($sql);
         $result = $stmt->execute([

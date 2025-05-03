@@ -39,7 +39,6 @@ class LoginModel extends Model
             throw new Exception("Invalid username or password");
         }
         session_start();
-        $_SESSION['user'] = $user;
-        return $user;
+        $_SESSION['user_id'] = $user['user_id'];
     }
 }
