@@ -20,7 +20,6 @@ body {
     font-size:xx-large;
     display: flex;
     flex-direction: column;
-    border: solid 1px;
     height: 100vh;
     
 
@@ -31,15 +30,12 @@ main {
 }
 
 h1 {
-    text-align: center;
     color: white;
     
 
 }
 
 section {
-    width: 30%;
-    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 100px;
@@ -52,8 +48,8 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding-top: 80px;
-    padding-bottom: 10px;
+    padding: 80px 80px 20px 80px  ;
+    width: fit-content;
 
 
 
@@ -67,18 +63,19 @@ input {
     border-radius: 10px;
     font-size: x-large;
     border: none;
-
-
+    
 }
 
 select {
-    border: none;
-    background-color: var(--Secundary) ;
-    border-radius: 10px;
-    width: 400px;
     margin: 0 auto;
+    width: 400px;
     padding: 20px;
-}
+    background-color: var(--Secundary);
+    border-radius: 10px;
+    font-size: x-large;
+    border: none;
+    color: rgb(255, 255, 255);
+}    
 
 ::placeholder {
     color: rgb(255, 255, 255);
