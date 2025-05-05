@@ -41,6 +41,7 @@ CREATE TABLE category(
 
 CREATE TABLE options (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  price FLOAT,
   name VARCHAR (255)
 );
 
