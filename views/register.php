@@ -11,7 +11,7 @@
 <body>
     <section>
         <h1>DONKEY EVENT</h1>
-        <form action="../index.php" method="POST">
+        <form action="?page=register" method="POST">
             <h2>Formulaire d'inscription</h2>
             <input type="email" id="e-mail" name="e-mail" placeholder="Entrer votre e-mail">
             <input type="password" id="mp" name="password" placeholder="Votre mot de passe">

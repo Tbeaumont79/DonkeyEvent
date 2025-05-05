@@ -10,6 +10,7 @@ class ControllerRegister extends Controller
         else {
             $registerModel = new RegisterModel($_POST['firstname'], $_POST['lastname'], $_POST['password'], $_POST['gender'], $_POST['e-mail']);
             $registerModel->register();
+            header('Location: index.php?page=login');
         }
     }
 }
