@@ -15,7 +15,6 @@
 
 body {
     background: var(--primary);    
-    height: auto;
     font-family:Aria, Helvetica, sans-serif;
     font-size:xx-large;
     display: flex;
@@ -31,6 +30,7 @@ main {
 
 h1 {
     color: white;
+    text-align: center;
     
 
 }
@@ -39,6 +39,8 @@ section {
     display: flex;
     flex-direction: column;
     gap: 100px;
+    width: fit-content;
+    margin: auto;
     
 
 }
@@ -67,8 +69,6 @@ input {
 }
 
 select {
-    margin: 0 auto;
-    width: 400px;
     padding: 20px;
     background-color: var(--Secundary);
     border-radius: 10px;
@@ -217,6 +217,8 @@ nav a {
     
 }
 
+
+
 .réserver {
     font-size: small;
     background-color: #ed7d32;
@@ -270,9 +272,24 @@ footer {
     justify-content: flex-start;
 }
 
+.total {
+    color: rgb(8, 121, 226);
+    font-size:x-large;
+}
 
+.optionsForm {
+    display: flex;
+    flex-direction: column;
+}
 
+.optionsForm span {
+    color: rgb(8, 121, 226);
+  
+}
 
+.checkbox {
+    width: 0px;
+}
 
 
 

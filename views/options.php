@@ -41,8 +41,18 @@
         </section>
         <section class="options">
             <form class="optionsForm" action="" method="post">
-                <input type="checkbox" id="checkboxOptions" name="checkboxOptions">
-                <label for="checkboxOptions">accès au bar <span>15euros</span>:</label>
+                <div>
+                    <input type="checkbox" id="checkboxOptions" name="checkboxOptions">
+                    <label for="checkboxOptions">accès au bar <span>15euros :</span></label>
+                </div>
+                <div>
+                    <input type="checkbox" id="checkboxOptions" name="checkboxOptions">
+                    <label for="checkboxOptions">Atelier peinture : <span>45 euros/ jour</span></label>
+                </div>
+                <div>
+                    <input type="checkbox" id="checkboxOptions" name="checkboxOptions">
+                    <label for="checkboxOptions">Place VIP Concert : <span>20€/ jour</span></label>
+                </div>
             </form>
         </section>
     
