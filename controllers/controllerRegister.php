@@ -2,7 +2,6 @@
 require_once('models/register.php');
 class ControllerRegister
 {
-    private $user;
     public function __construct() {}
     public function start()
     {

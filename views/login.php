@@ -9,7 +9,7 @@
 <body>
     <section>
         <h1>DONKEY EVENT</h1>
-        <form action="" methode="post">
+        <form action="#" method="post">
             <input type="email" id="email" name="email" placeholder="Entrer votre e-mail">
             <input type="password" id="password" name="password" placeholder="Votre mot de passe">
             <button>Connexion</button>

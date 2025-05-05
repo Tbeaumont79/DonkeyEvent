@@ -8,6 +8,7 @@ class LoginModel extends Model
     {
         $this->setEmail($email);
         $this->setPassword($password);
+        parent::__construct();
     }
 
     public function setEmail($email)
@@ -27,6 +28,7 @@ class LoginModel extends Model
     public function login()
     {
         $sql = "SELECT * FROM users WHERE email = :email";
+        var_dump($this->pdo);
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             'email' => $this->email
