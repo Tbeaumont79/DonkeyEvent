@@ -18,7 +18,6 @@ class Controller
                 //     $controller = new ControllerLogout();
                 break;
             default:
-                require_once('controllers/controllerLogin.php');
                 $controller = new ControllerLogin();
         }
         return $controller;

@@ -1,5 +1,5 @@
 <?php
-require_once('models/login.php');
+require_once('models/LoginModel.php');
 class ControllerLogin extends Controller
 {
     public function __construct() {}

@@ -1,5 +1,5 @@
 <?php
-require_once('models/register.php');
+require_once('models/RegisterModel.php');
 class ControllerRegister extends Controller
 {
     public function __construct() {}

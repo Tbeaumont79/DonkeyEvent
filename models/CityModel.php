@@ -10,7 +10,7 @@ interface Crud
 }
 
 
-class City extends Model implements Crud
+class CityModel extends Model implements Crud
 {
     public function create() {}
 
@@ -34,8 +34,6 @@ class City extends Model implements Crud
     public function update() {}
     public function delete() {}
 }
-$cityObjet = new City();
-$cityObjet->read();
 
 ?>
 
