@@ -21,3 +21,4 @@ $username = $_SESSION['user']['gender'] === "female" ? 'Mme ' . $_SESSION['user'
         <a href="/?page=logout" class="header-button lienConnexion">Déconnexion</a>
     </div>
 </header>
+<h1 class="page-title">DONKEY EVENT</h1>

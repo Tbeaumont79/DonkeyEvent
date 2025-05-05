@@ -11,10 +11,6 @@
 <body>
     <?php require_once('./layouts/header.php'); ?>
 
-    <section class="page-title">
-        <h1>DONKEY EVENT</h1>
-    </section>
-
 
     <section class="find-event-container">
         <div class="h2-and-form">

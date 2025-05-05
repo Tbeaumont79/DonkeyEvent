@@ -16,7 +16,6 @@
 body {
     background: var(--primary);    
     font-family:Aria, Helvetica, sans-serif;
-    font-size:xx-large;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -106,74 +105,66 @@ h2 {
 
 }
 
-a {
-    text-decoration:underline;
-    color: rgb(24, 156, 232);
-}
 
 .bodyListe {
     background-color: white;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-
-    
+    background-color: #000;
+	padding: 15px 40px;
 }
 
 
-.container {
+.header-container {
     display: flex;
-    background-color: black;
-    padding: 10px;
-    align-items: center;
-    gap: 100px;
-
-
-
-}
-
-nav {
-    display: flex;
-    flex-grow: 0.5;
-    align-items: center;
     justify-content: space-between;
-
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: medium;
-
-}
-
-.user {
-    flex-grow: 2;
-    color: white;
-    font-size: medium;
-    text-align: start;
     align-items: center;
-
-
-
+    color: white;
 }
+
 
 .lienConnexion {
+	color: white;
+	text-decoration: none;
+	font-size: medium;
+	background-color: rgb(8, 164, 226);
+	padding: 10px;
+}
+
+
+.header-nav {
+	gap: 20px;
+	display: flex;
+	align-items: center;
+}
+
+
+.header-nav a {
     color: white;
-    text-decoration: none;
-    font-size: medium;
-    background-color: rgb(8, 164, 226);
-    padding: 10px;
-
-
+	text-decoration: none;
 }
-.titre {
-    background-color: var(--primary);
-    padding: 20px 0;
 
+.logout {
+	background-color: rgb(75, 125, 203);
+	padding: 8px 12px;
+	border-radius: 5px;
+	margin-left: 80px;
 }
+
+.page-title {
+	background-color: rgb(230, 104, 37);
+	color: white;
+	padding: 25px 40px;
+	text-align: center;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
 
 .ville {
     text-align: start;
@@ -291,5 +282,10 @@ footer {
     width: 0px;
 }
 
-
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+}
 

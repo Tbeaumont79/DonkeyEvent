@@ -10,9 +10,6 @@
 
 <body class="bodyListe">
     <?php require_once('./layouts/header.php'); ?>
-    <section class="page-title">
-        <h1>DONKEY EVENT</h1>
-    </section>
     <main>
         <section class="container2">
             <div class="carte">
