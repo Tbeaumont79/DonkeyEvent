@@ -1,3 +1,4 @@
+use donkeyevent;
 INSERT INTO country (name) VALUES ('France');
 INSERT INTO country (name) VALUES ('Germany');
 INSERT INTO country (name) VALUES ('Italy');
@@ -9,7 +10,7 @@ INSERT INTO country (name) VALUES ('Australia');
 
 INSERT INTO city (country_id, name) VALUES (1, 'Paris');
 INSERT INTO city (country_id, name) VALUES (1, 'Lyon');
-INSERT INTO city (country_id, name) VALUES (2, 'Berlin')
+INSERT INTO city (country_id, name) VALUES (2, 'Berlin');
 INSERT INTO city (country_id, name) VALUES (3, 'Rome');
 INSERT INTO city (country_id, name) VALUES (3, 'Milan');
 INSERT INTO city (country_id, name) VALUES (4, 'Madrid');

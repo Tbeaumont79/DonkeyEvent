@@ -1,3 +1,4 @@
+use donkeyevent;
 INSERT INTO category (name) VALUES ('Music');
 INSERT INTO category (name) VALUES ('Theater');
 INSERT INTO category (name) VALUES ('Sports');
