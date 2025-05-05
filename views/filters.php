@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtrer les événements</title>
     <link rel="stylesheet" href="styles1.css">
 </head>
+
 <body>
-    <header>
-        <div class="header-container">
-            <span>M. Dupont Durand</span>
-            <nav class="header-nav">
-                <a href="#">Mon compte</a>
-                <a href="#">Mes réservations</a>
-                <a href="#">Trouver un évènement</a>
-                <a href="#" class="logout">Déconnexion</a>                
-            </nav>
-        </div>
-    </header>
+    <?php require_once('./layouts/header.php'); ?>
 
     <section class="page-title">
         <h1>DONKEY EVENT</h1>
@@ -49,7 +41,7 @@
 
             </form>
         </div>
-        
+
 
     </section>
 
@@ -59,4 +51,5 @@
 
 
 </body>
+
 </html>

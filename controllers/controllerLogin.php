@@ -5,8 +5,8 @@ class ControllerLogin extends Controller
     public function __construct() {}
     public function start()
     {
-        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != null)
-            header('Location: views/liste.php');
+        if (isset($_SESSION['user']) && $_SESSION['user'] != null)
+            header('Location: views/filters.php');
         if (!isset($_POST['email']) || !isset($_POST['password']))
             require_once('views/login.php');
         else {

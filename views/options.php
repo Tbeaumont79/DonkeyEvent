@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="FR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bodyListe">
-    <header>
-            <div class="container">
-                <p class="user">Mr Dupont Durand</p>
-                <nav>
-                <a href="">Mon compte</a>
-                <a href="">Mes réservations</a>
-                <a href="">Trouver un évènement</a>
-                </nav>
-                <a class="lienConnexion"  href="login.php">Déconnexion</a>
-            </div>
-            <h1 class="titre">DONKEY EVENT</h1>
-    </header>
+    <?php require_once('./layouts/header.php'); ?>
+    <section class="page-title">
+        <h1>DONKEY EVENT</h1>
+    </section>
     <main>
         <section class="container2">
             <div class="carte">
@@ -31,11 +25,11 @@
                 </div>
             </div>
             <div class="infos">
-                    <h2 class="infosClient">Infos client</h2>
-                    <p class="prénom"><strong>Prénom : </strong>Dupont</p>
-                    <p class="nom"><strong>nom : </strong>Durant</p>
-                    <p class="téléphone"><strong>téléphone : </strong>06 22 22 22 22</p>
-                    <p class="total"><strong>Total : 200 euros</strong></p>
+                <h2 class="infosClient">Infos client</h2>
+                <p class="prénom"><strong>Prénom : </strong>Dupont</p>
+                <p class="nom"><strong>nom : </strong>Durant</p>
+                <p class="téléphone"><strong>téléphone : </strong>06 22 22 22 22</p>
+                <p class="total"><strong>Total : 200 euros</strong></p>
             </div>
 
         </section>
@@ -45,9 +39,10 @@
                 <label for="checkboxOptions">accès au bar <span>15euros</span>:</label>
             </form>
         </section>
-    
+
     </main>
     <footer></footer>
 
 </body>
+
 </html>

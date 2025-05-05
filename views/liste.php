@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="FR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bodyListe">
-    <header>
-            <div class="container">
-                <p class="user">Mr Dupont Durand</p>
-                <nav>
-                <a href="">Mon compte</a>
-                <a href="">Mes réservations</a>
-                <a href="">Trouver un évènement</a>
-                </nav>
-                <a class="lienConnexion"  href="login.php">Déconnexion</a>
-            </div>
-            <h1 class="titre">DONKEY EVENT</h1>
-    </header>
+    <?php require_once('./layouts/header.php'); ?>
     <main>
         <p class="ville">Ville : PARIS</p>
         <section class="container1">
@@ -34,4 +25,5 @@
         </section>
     </main>
 </body>
+
 </html>
