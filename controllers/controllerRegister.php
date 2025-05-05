@@ -1,6 +1,6 @@
 <?php
 require_once('models/register.php');
-class ControllerRegister
+class ControllerRegister extends Controller
 {
     public function __construct() {}
     public function start()
@@ -10,6 +10,5 @@ class ControllerRegister
 
         $registerModel = new RegisterModel($_POST['firstname'], $_POST['lastname'], $_POST['password'], $_POST['gender'], $_POST['e-mail']);
         $registerModel->register();
-        
     }
 }

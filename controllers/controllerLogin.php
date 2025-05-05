@@ -1,6 +1,6 @@
 <?php
 require_once('models/login.php');
-class ControllerLogin
+class ControllerLogin extends Controller
 {
     public function __construct() {}
     public function start()
