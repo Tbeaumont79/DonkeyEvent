@@ -15,7 +15,7 @@
             <input type="email" id="email" name="email" placeholder="Entrer votre e-mail">
             <input type="password" id="password" name="password" placeholder="Votre mot de passe">
             <button>Connexion</button>
-            <p>Vous n'avez pas de compte ? <a href="register.php">inscrivez-vous</a> !</p>
+            <p>Vous n'avez pas de compte ? <a href="?page=register">inscrivez-vous</a> !</p>
         </form>
 
     </section>
