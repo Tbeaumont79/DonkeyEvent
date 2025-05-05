@@ -8,7 +8,12 @@ class ControllerRegister extends Controller
         if (!isset($_POST['firstname']) || !isset($_POST['lastname']) || !isset($_POST['password']) || !isset($_POST['gender']) || !isset($_POST['e-mail']))
             require_once('views/register.php');
         else {
-            $registerModel = new RegisterModel($_POST['firstname'], $_POST['lastname'], $_POST['password'], $_POST['gender'], $_POST['e-mail']);
+            $firstname = htmlentities($_POST['firstname']);
+            $lastname = htmlentities($_POST['lastname']);
+            $password = htmlentities($_POST['password']);
+            $gender = htmlentities($_POST['gender']);
+            $email = htmlentities($_POST['e-mail']);
+            $registerModel = new RegisterModel($firstname, $lastname, $password, $gender, $email);
             $registerModel->register();
             header('Location: index.php?page=login');
         }

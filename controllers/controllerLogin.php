@@ -10,7 +10,9 @@ class ControllerLogin extends Controller
         if (!isset($_POST['email']) || !isset($_POST['password']))
             require_once('views/login.php');
         else {
-            $loginModel = new LoginModel($_POST['email'], $_POST['password']);
+            $email = htmlentities($_POST['email']);
+            $password = htmlentities($_POST['password']);
+            $loginModel = new LoginModel($email, $password);
             $loginModel->login();
             header('Location: views/liste.php');
         }
