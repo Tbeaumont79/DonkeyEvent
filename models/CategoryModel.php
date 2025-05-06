@@ -1,7 +1,6 @@
-
 <?php
 require_once __DIR__ . '/model.php';
-interface CityCrud
+interface CategoryCrud
 {
     public function create();
     public function read();
@@ -9,29 +8,23 @@ interface CityCrud
     public function delete();
 }
 
-
-class CityModel extends Model implements CityCrud
+class CategoryModel extends Model implements CategoryCrud
 {
-    public function create() {}
 
     public function __construct()
     {
         parent::__construct();
     }
-
+    public function create() {}
     public function read()
     {
-        $query = "SELECT * FROM city WHERE id IN (SELECT MIN(id) FROM city GROUP BY name);";
+        $query = "SELECT name FROM category";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
-        $cities = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $cities;
+        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $categories;
     }
 
     public function update() {}
     public function delete() {}
 }
-
-?>
-
-

@@ -11,7 +11,8 @@ class ControllerEvent
             header('Location: index.php?page=filters');
         } else {
             $eventsModel = new EventModel($_POST['city'], $_POST['date'], $_POST['category']);
-            $events = $eventsModel->getEvents();
+
+            $events = $eventsModel->read();
             require_once(__DIR__ . '/../views/events.php');
         }
     }

@@ -1,5 +1,14 @@
 <?php
-class EventModel extends Model
+
+interface EventCrud
+{
+    public function create();
+    public function read();
+    public function update();
+    public function delete();
+}
+require_once __DIR__ . '/model.php';
+class EventModel extends Model implements EventCrud
 {
     private $city;
     private $date;
@@ -12,7 +21,19 @@ class EventModel extends Model
         $this->date = $date;
         $this->category = $category;
     }
-
+    protected function getIdByName($table, $name)
+    {
+        $query = "SELECT id FROM $table WHERE name = :name";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['id'];
+        } else {
+            return null;
+        }
+    }
     public function findEventsByDate()
     {
         $query = "SELECT * FROM events WHERE date_event = :date_event";
@@ -22,7 +43,7 @@ class EventModel extends Model
         $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $events;
     }
-    public function getEvents()
+    public function read()
     {
         if (!$this->findEventsByDate())
             return false;
@@ -41,4 +62,7 @@ class EventModel extends Model
         $this->events = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $this->events;
     }
+    public function create() {}
+    public function update() {}
+    public function delete() {}
 }
