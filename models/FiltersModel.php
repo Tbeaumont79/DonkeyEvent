@@ -9,12 +9,13 @@ class FiltersModel extends Model
 
     public function findAllCities()
     {
-        $query = "SELECT name FROM city";
+        $query = "SELECT * FROM city WHERE id IN (SELECT MIN(id) FROM city GROUP BY name);";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
         $cities = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $cities;
     }
+
 
     public function findEventDates()
     {

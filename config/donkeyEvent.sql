@@ -59,7 +59,7 @@ CREATE TABLE events (
 );
 
 CREATE TABLE reservation (
-  reservation_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT,
   event_id INT,
   CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
