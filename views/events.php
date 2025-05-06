@@ -18,7 +18,7 @@
                 <p class="date"><strong>Date : <?= $event['date_event'] ?></strong></p>
                 <p class="catégorie"><strong>Catégorie :</strong> <?= $event['category_name'] ?></p>
                 <div class="boutonRéserver">
-                    <button class="réserver">Réserver</button>
+                    <a href="?page=booking&event_id=<?= $event['id'] ?>" class="button">Réserver</a>
                 </div>
             </div>
         <?php endforeach; ?>

@@ -7,6 +7,7 @@ require_once('controllers/ControllerRegister.php');
 require_once('controllers/ControllerLogin.php');
 require_once('controllers/ControllerFilters.php');
 require_once('controllers/ControllerEvent.php');
+require_once('controllers/ControllerBooking.php');
 if (!isset($_GET['page'])) {
     header('Location: index.php?page=login');
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,9 @@
     <link rel="stylesheet" href="styles1.css">
 
 </head>
+
 <body>
-    <header>
-        <div class="header-container">
-            <span>M. Dupont Durand</span>
-            <nav class="header-nav">
-                <a href="#">Mon compte</a>
-                <a href="#">Mes réservations</a>
-                <a href="#">Trouver un évènement</a>
-                <a href="#" class="logout">Déconnexion</a>                
-            </nav>
-        </div>
-    </header>
+    <?php require_once(__DIR__ . '/layouts/header.php'); ?>
 
     <section class="page-title">
         <h1>DONKEY EVENT</h1>
@@ -40,8 +32,8 @@
                     <td>Lundi 28 avril 2025</td>
                     <td>
                         <nav class="nav-booking">
-                        <a href="#">Modifier</a>
-                        <a href="#">Annuler</a>                
+                            <a href="#">Modifier</a>
+                            <a href="#">Annuler</a>
                         </nav>
                     </td>
                 </tr>
@@ -57,4 +49,5 @@
 
 
 </body>
+
 </html>
