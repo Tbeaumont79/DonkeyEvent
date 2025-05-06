@@ -31,10 +31,11 @@
                         <td><?= $event['city_name'] != null ? $event['city_name'] : 'Aucune ville' ?></td>
                         <td><?= $event['event_name'] != null ? $event['event_name'] : 'Aucun event' ?></td>
                         <td><?= $event['booking_date'] != null ? $event['booking_date'] : 'Aucune date' ?></td>
-                        <nav class="nav-booking">
-                            <a href="#">Modifier</a>
-                            <a href="#">Annuler</a>
-                        </nav>
+                        <td>
+                            <nav class="nav-booking">
+                                <a href="#">Modifier</a>
+                                <a href="/?page=bookedevents&event_id=<?= $event['event_id'] ?>">Annuler</a>
+                            </nav>
                         </td>
                     <?php endforeach; ?>
                 <?php } ?>
@@ -42,14 +43,8 @@
             </table>
         </div>
     </section>
-
-    </section>
-
     <footer class="footer-booking">
-
     </footer>
-
-
 </body>
 
 </html>

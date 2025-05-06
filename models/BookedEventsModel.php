@@ -5,7 +5,7 @@ interface BookedEventsCrud
     public function read();
     public function create($event_id, $event_date);
     public function update();
-    public function delete();
+    public function delete($event_id);
 }
 
 class BookedEventsModel extends Model implements BookedEventsCrud
@@ -35,6 +35,16 @@ class BookedEventsModel extends Model implements BookedEventsCrud
         $stmt->bindParam(':booking_date', $event_date, PDO::PARAM_STR);
         $stmt->execute();
     }
-    public function update() {}
-    public function delete() {}
+    public function update() {
+        
+    }
+    public function delete($event_id)
+    {
+        $user_id = $_SESSION['user']['id'];
+        $query = "DELETE FROM bookedEvents WHERE user_id = :user_id AND event_id = :event_id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $event_id, PDO::PARAM_INT);
+        $result = $stmt->execute();
+    }
 }
