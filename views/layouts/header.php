@@ -1,7 +1,5 @@
 <?php
-if (!session_start() || !isset($_SESSION['user'])) {
-    header('Location: /?page=login');
-}
+
 $navElement = [
     'Mon Compte' => '/?page=account',
     'Mes réservations' => '/?page=reservations',

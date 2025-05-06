@@ -2,68 +2,34 @@
 require_once("models/model.php");
 class FiltersModel extends Model
 {
-    private $city = "";
-    private $date = "";
-    private $category = "";
-    private $role_id = 0;
-    public function __construct($city, $date, $category)
+    public function __construct()
     {
-        $this->setCity($city);
-        $this->setDate($date);
-        $this->setCategory($category);
-    }
-    private function setCity($city)
-    {
-        $this->city = $city;
+        parent::__construct();
     }
 
-    private function setDate($date)
+    public function findAllCities()
     {
-        $this->date = $date;
-    }
-
-    private function setCategory($category)
-    {
-        $this->category = $category;
-    }
-
-    private function setRoleId($role_id)
-    {
-        $this->role_id = $role_id;
-    }
-
-    private function getCity()
-    {
-        return $this->city;
-    }
-
-    private function getDate()
-    {
-        return $this->date;
-    }
-
-    private function getCategory()
-    {
-        return $this->category;
-    }
-
-
-    private function getRoleId()
-    {
-        $sql = "SELECT role_id FROM users";
-        $stmt = $this->pdo->prepare($sql);
+        $query = "SELECT name FROM city";
+        $stmt = $this->pdo->prepare($query);
         $stmt->execute();
-        if (!$stmt) {
-            $this->setRoleId(1);
-        }
-        return $this->role_id;
+        $cities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $cities;
     }
-    
-    public function filter()
+
+    public function findEventDates()
     {
-        print_r("je passe ici 2 : filterModel");
-        
-        
-   
+        $query = "SELECT date_event FROM events";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $dates;
+    }
+    public function findCategories()
+    {
+        $query = "SELECT name FROM category";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $categories;
     }
 }
