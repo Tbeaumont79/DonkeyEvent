@@ -22,19 +22,6 @@ class EventModel extends Model
         $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $events;
     }
-    public function getIdByName($table, $name)
-    {
-        $query = "SELECT id FROM $table WHERE name = :name";
-        $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':name', $name);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($result) {
-            return $result['id'];
-        } else {
-            return null;
-        }
-    }
     public function getEvents()
     {
         if (!$this->findEventsByDate())

@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="views/styles.css">
 </head>
 
 <body class="bodyListe">
-    <?php require_once('./layouts/header.php'); ?>
+    <?php require_once('layouts/header.php'); ?>
     <section class="page-title">
         <h1>DONKEY EVENT</h1>
     </section>
     <main>
         <section class="container2">
             <div class="carte">
-                <h2 class="titreCarte">FESTI ART</h2>
-                <p class="prix">200 € / jour</p>
-                <p class="date"><strong>Date : Lundi</strong> 28 avril 2025</p>
-                <p class="catégorie"><strong>Catégorie :</strong> Art urbain</p>
+                <h2 class="titreCarte"><?= $eventDetails["name"] ?></h2>
+                <p class="prix"><?= $eventDetails["price"] ?> € / jour</p>
+                <p class="date"><strong>Date : <?= $eventDetails["date_event"] ?></strong></p>
+                <p class="catégorie"><strong>Catégorie :</strong> <?= $categoryName ?></p>
                 <div class="boutonRéserver">
                     <button class="réserver">Réserver</button>
                 </div>

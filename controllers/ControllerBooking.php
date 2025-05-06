@@ -11,7 +11,10 @@ class ControllerBooking
             header('Location: index.php?page=events');
         } else {
             $event_id = $_GET['event_id'];
-            require_once(__DIR__ . '/../views/booking.php');
+            $bookingModel = new BookingModel($event_id);
+            $eventDetails = $bookingModel->getEventDetails();
+            $categoryName = $bookingModel->getCategoryName();
+            require_once(__DIR__ . '/../views/options.php');
         }
     }
 }
