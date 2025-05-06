@@ -15,7 +15,7 @@ class ControllerBooking
             $eventDetails = $bookingModel->getEventDetails();
             $categoryName = $bookingModel->getCategoryName();
             $options = $bookingModel->getAllOptions();
-            require_once(__DIR__ . '/../views/options.php');
+            require_once(__DIR__ . '/../views/BookingView.php');
         }
     }
 }

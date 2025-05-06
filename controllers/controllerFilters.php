@@ -15,6 +15,6 @@ class ControllerFilters
         $categories = $category->read();
         $event = new EventModel(null, null, null);
         $dates = $event->findEventsByDate();
-        require_once('views/filters.php');
+        require_once('views/FiltersView.php');
     }
 }
