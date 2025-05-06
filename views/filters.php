@@ -19,7 +19,7 @@
     <section class="find-event-container">
         <div class="h2-and-form">
             <h2>Trouvez un événement</h2>
-            <form class="vertical-form" method="post" action="#">
+            <form class="vertical-form" method="post" action="/?page=events">
                 <select name="city" id="city-select">
                     <option value="">Ville</option>
                     <?php foreach ($cities as $city) : ?>

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="views/styles.css">
 </head>
 
 <body class="bodyListe">
-    <?php require_once('./layouts/header.php'); ?>
+    <?php require_once(__DIR__ . '/layouts/header.php'); ?>
     <main>
         <p class="ville">Ville : PARIS</p>
         <section class="container1">
