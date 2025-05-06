@@ -37,4 +37,17 @@ class BookingModel extends Model
         $this->setCategoryId($event['category_id']);
         return $event;
     }
+
+    public function getAllOptions()
+    {
+        $query = "SELECT * FROM options where event_id = :event_id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':event_id', $this->event_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $options = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (!$options) {
+            throw new Exception("Options not found");
+        }
+        return $options;
+    }
 }
