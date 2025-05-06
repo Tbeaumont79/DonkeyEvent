@@ -2,10 +2,14 @@
 
 $navElement = [
     'Mon Compte' => '/?page=account',
-    'Mes réservations' => '/?page=reservations',
-    'Trouver un évènement' => '/?page=events',
+    'Mes réservations' => '/?page=bookedevents',
+    'Trouver un évènement' => '/?page=filters',
 ];
 $title = "DONKEYEVENT";
+if ($_SESSION['user'] == null) {
+    header('Location: /index.php?page=login');
+    exit();
+}
 $username = $_SESSION['user']['gender'] === "female" ? 'Mme ' . $_SESSION['user']['lastname'] . ' ' . $_SESSION['user']['firstname'] : 'Mr ' . $_SESSION['user']['lastname'] . ' ' . $_SESSION['user']['firstname'];
 ?>
 <header>

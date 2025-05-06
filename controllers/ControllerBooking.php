@@ -1,13 +1,15 @@
 <?php
 
 require_once(__DIR__ . '/../models/BookingModel.php');
-class ControllerBooking
+class ControllerBooking extends Controller
 {
     public function __construct() {}
 
     public function start()
     {
-        if (!$_GET['event_id']) {
+
+        if (!$_SERVER['REQUEST_METHOD'] === 'POST' && !$_GET['event_id']) {
+            die('je passe ici et wtf 2 ctrl booking? ');
             header('Location: index.php?page=events');
         } else {
             $event_id = $_GET['event_id'];

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes réservations</title>
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="views/styles1.css">
 
 </head>
 
@@ -26,16 +26,18 @@
                     <th>Date</th>
                     <th>Actions</th>
                 </tr>
-                <tr>
-                    <td>Paris</td>
-                    <td>FESTI ART</td>
-                    <td>Lundi 28 avril 2025</td>
-                    <td>
+                <?php if (isset($bookedEvents) && $bookedEvents != null) { ?>
+                    <?php foreach ($bookedEvents as $event) : ?>
+                        <td><?= $event['city_name'] != null ? $event['city_name'] : 'Aucune ville' ?></td>
+                        <td><?= $event['event_name'] != null ? $event['event_name'] : 'Aucun event' ?></td>
+                        <td><?= $event['booking_date'] != null ? $event['booking_date'] : 'Aucune date' ?></td>
                         <nav class="nav-booking">
                             <a href="#">Modifier</a>
                             <a href="#">Annuler</a>
                         </nav>
-                    </td>
+                        </td>
+                    <?php endforeach; ?>
+                <?php } ?>
                 </tr>
             </table>
         </div>

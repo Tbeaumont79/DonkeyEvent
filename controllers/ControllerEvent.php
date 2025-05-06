@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../models/EventModel.php');
-class ControllerEvent
+class ControllerEvent extends Controller
 {
     public function __construct() {}
 

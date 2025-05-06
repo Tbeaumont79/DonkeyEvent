@@ -57,13 +57,13 @@ CREATE TABLE options (
 
 );
 
-CREATE TABLE reservation(
+CREATE TABLE bookedEvents(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT,
   event_id INT,
   CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   CONSTRAINT FK_event_id_reservation FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE,
-  date_reservation DATE
+  booking_date DATE
 );
 
 

@@ -32,14 +32,18 @@
 
         </section>
         <section class="options">
-            <form class="optionsForm" action="" method="post">
+            <form class="vertical-form" method="post" action="/?page=bookedevents">
                 <?php foreach ($options as $option) : ?>
-                    <input type="checkbox" id="<?= $option['id'] ?>" name="checkboxOptions" value="<?= $option['price'] ?>">
                     <label for="<?= $option['id'] ?>"><?= $option['name'] ?> <span><?= $option['price'] ?> euros</span>:</label>
+                    <input type="checkbox" id="<?= $option['id'] ?>" name="option[<?= $option['id'] ?>]" value="<?= $option['price'] ?>">
                 <?php endforeach; ?>
                 <div class="boutonRéserver">
-                    <button class="réserver">Réserver</button>
+                    <input type="hidden" name="event_id" value="<?= $eventDetails['id'] ?>">
+                    <input type="hidden" name="event_date" value="<?= $eventDetails['date_event'] ?>">
+                    <input type="hidden" name="event_name" value="<?= $eventDetails['name'] ?>">
+                    <input type="hidden" name="event_id" value="<?= $eventDetails['id'] ?>">
                 </div>
+                <button type="submit" class="button">Réserver</button>
             </form>
         </section>
 
