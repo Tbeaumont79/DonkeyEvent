@@ -16,6 +16,10 @@ class Controller
             case 'filters':
                 $controller = new ControllerFilters();
                 break;
+            case 'events':
+                $controller = new ControllerEvent();
+                break;
+                
             // case 'logout':
             //     require_once('controllers/controllerLogout.php');
             //     $controller = new ControllerLogout();
