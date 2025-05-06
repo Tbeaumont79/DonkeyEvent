@@ -25,7 +25,9 @@ class Controller
             case 'bookedevents':
                 $controller = new ControllerBookedEvents();
                 break;
-
+            case 'account':
+                $controller = new ControllerAccount();
+                break;
             // case 'logout':
             //     require_once('controllers/controllerLogout.php');
             //     $controller = new ControllerLogout();
