@@ -230,14 +230,20 @@ main {
 	gap: 20px;
 	width: 400px;
 }
-
+.booking-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+}
 table {
 	width: 80%;
 	border-collapse: collapse;
 	font-size: 16px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	gap: 50px;
 }
@@ -246,6 +252,7 @@ tr {
 }
 th {
 	color: rgb(91, 155, 213);
+	width: 300px;
 }
 th,
 td {

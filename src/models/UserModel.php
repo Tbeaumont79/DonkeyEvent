@@ -1,7 +1,7 @@
 <?php
 interface UserCrudInterface
 {
-    public function read();
+    public function read($user_id);
     public function create($firstname, $lastname, $password, $gender, $email, $role_id);
     public function update();
     public function delete($user_id);
@@ -13,11 +13,11 @@ class UserModel extends Model implements UserCrudInterface
     {
         parent::__construct();
     }
-    public function read()
+    public function read($user_id)
     {
         $query = "SELECT * FROM users WHERE id = :user_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
