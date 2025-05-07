@@ -20,7 +20,10 @@ if ($_SESSION['user']['id'] == null || !isset($_SESSION['user'])) {
                     <a href="<?= $link ?>"><?= $name ?></a>
                 <?php endforeach; ?>
             </nav>
-            <a href="/?page=logout" class="header-button lienConnexion">Déconnexion</a>
+            <a href="/?page=logout" class="logout">Déconnexion</a>
         </div>
     </header>
+    <section class="page-title">
+        <h1><?= $title ?></h1>
+    </section>
 <?php } ?>

@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <section>
-        <h1>DONKEY EVENT</h1>
+    <section class="register-container">
+        <h1 class="title">DONKEY EVENT</h1>
         <form action="?page=register" method="POST">
-            <h2>Formulaire d'inscription</h2>
+            <h2 class="subtitle">Formulaire d'inscription</h2>
             <input type="email" id="e-mail" name="e-mail" placeholder="Entrer votre e-mail">
             <input type="password" id="mp" name="password" placeholder="Votre mot de passe">
-            <select name="gender" id="gender-select">
+            <select class="gender-select" name="gender" id="gender-select">
                 <option value="">choisissez un genre</option>
                 <option value="male">Homme</option>
                 <option value="female">Femme</option>

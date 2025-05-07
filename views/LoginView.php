@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="FR">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -9,16 +9,17 @@
 </head>
 
 <body>
-    <section>
-        <h1>DONKEY EVENT</h1>
-        <form action="#" method="post">
-            <input type="email" id="email" name="email" placeholder="Entrer votre e-mail">
-            <input type="password" id="password" name="password" placeholder="Votre mot de passe">
-            <button>Connexion</button>
-            <p>Vous n'avez pas de compte ? <a href="?page=register">inscrivez-vous</a> !</p>
-        </form>
-
-    </section>
+    <main>
+        <section class="login-container">
+            <h1 class="title">DONKEY EVENT</h1>
+            <form class="form-login" action="#" method="post">
+                <input type="email" id="email" name="email" placeholder="Entrer votre e-mail">
+                <input type="password" id="password" name="password" placeholder="Votre mot de passe">
+                <button class="cta" type="submit">Connexion</button>
+                <p>Vous n'avez pas de compte ? <a href="?page=register">inscrivez-vous</a> !</p>
+            </form>
+        </section>
+    </main>
 
 </body>
 

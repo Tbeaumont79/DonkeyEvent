@@ -8,48 +8,45 @@
     <link rel="stylesheet" href="views/styles.css">
 </head>
 
-<body class="bodyListe">
+<body>
     <?php require_once('layouts/header.php'); ?>
-    <section class="page-title">
-        <h1>DONKEY EVENT</h1>
-    </section>
-    <main>
-        <section class="container2">
-            <div class="carte">
-                <h2 class="titreCarte"><?= $eventDetails["name"] ?></h2>
-                <p class="prix"><?= $eventDetails["price"] ?> € / jour</p>
-                <p class="date"><strong>Date : <?= $eventDetails["date_event"] ?></strong></p>
-                <p class="catégorie"><strong>Catégorie :</strong> <?= $categoryName ?></p>
-
+    <main class="booking-view">
+        <section class="event-and-options">
+            <div class="event-card">
+                <div class="primary-info">
+                    <h2><?= $eventDetails["name"] ?></h2>
+                    <p class="price"><?= $eventDetails["price"] ?> € / jour</p>
+                </div>
+                <div class="secondary-info">
+                    <p class="date"><strong>Date : <?= $eventDetails["date_event"] ?></strong></p>
+                    <p class="catégorie"><strong>Catégorie :</strong> <?= $categoryName ?></p>
+                </div>
             </div>
-            <div class="infos">
-                <h2 class="infosClient">Infos client</h2>
-                <p class="prénom"><strong>Prénom : </strong><?php echo $_SESSION['user']['firstname']; ?></p>
-                <p class="nom"><strong>nom : </strong><?php echo $_SESSION['user']['lastname']; ?></p>
-                <p class="téléphone"><strong>téléphone : </strong><?php echo !isset($_SESSION['user']['phone']) ?  "Non renseigné" : $_SESSION['phone']; ?></p>
-                <p class="total"><strong>Total : 200 euros</strong></p>
-            </div>
-
-        </section>
-        <section class="options">
-            <form class="vertical-form" method="post" action="/?page=bookedevents">
-                <?php foreach ($options as $option) : ?>
-                    <label for="<?= $option['id'] ?>"><?= $option['name'] ?> <span><?= $option['price'] ?> euros</span>:</label>
-                    <input type="checkbox" id="<?= $option['id'] ?>" name="option[<?= $option['id'] ?>]" value="<?= $option['price'] ?>">
-                <?php endforeach; ?>
-                <div class="boutonRéserver">
+            <div class="options-form">
+                <form method="post" action="/?page=bookedevents">
+                    <?php foreach ($options as $option) : ?>
+                        <label for="<?= $option['id'] ?>"><?= $option['name'] ?> <span><?= $option['price'] ?> euros</span>:</label>
+                        <input type="checkbox" id="<?= $option['id'] ?>" name="option[<?= $option['id'] ?>]" value="<?= $option['price'] ?>">
+                    <?php endforeach; ?>
                     <input type="hidden" name="event_id" value="<?= $eventDetails['id'] ?>">
                     <input type="hidden" name="event_date" value="<?= $eventDetails['date_event'] ?>">
                     <input type="hidden" name="event_name" value="<?= $eventDetails['name'] ?>">
                     <input type="hidden" name="event_id" value="<?= $eventDetails['id'] ?>">
-                </div>
-                <button type="submit" class="button">Réserver</button>
-            </form>
+                    <button type="submit" class="cta">Réserver</button>
+                </form>
+            </div>
         </section>
-
+        <section class="client-infos">
+            <div>
+                <h2 class="">Infos client</h2>
+                <p><strong>Prénom : </strong><?php echo $_SESSION['user']['firstname']; ?></p>
+                <p><strong>nom : </strong><?php echo $_SESSION['user']['lastname']; ?></p>
+                <p><strong>téléphone : </strong><?php echo !isset($_SESSION['user']['phone']) ?  "Non renseigné" : $_SESSION['phone']; ?></p>
+                <p class="price"><strong>Total : 200 euros</strong></p>
+            </div>
+        </section>
     </main>
     <footer></footer>
-
 </body>
 
 </html>

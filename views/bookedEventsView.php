@@ -12,17 +12,12 @@ if (isset($_POST['edit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes réservations</title>
-    <link rel="stylesheet" href="views/styles1.css">
+    <link rel="stylesheet" href="views/styles.css">
 
 </head>
 
 <body>
     <?php require_once(__DIR__ . '/layouts/header.php'); ?>
-
-    <section class="page-title">
-        <h1>DONKEY EVENT</h1>
-    </section>
-
     <section class="reservations-container">
         <div class="h2-and-table">
             <h2>Mes réservations</h2>
@@ -42,7 +37,7 @@ if (isset($_POST['edit'])) {
                             <td><?= $edit == false ? $event['booking_date'] : '<input type="text" name="booking_date" value="' . $event['booking_date'] . '">' ?></td>
                             <td>
                                 <nav class="nav-booking">
-                                    <?php echo $edit == false ?  '<button type="submit" name="edit">Modifier</button>' : '<button type="submit" name="save">Enregistrer</button>'?>
+                                    <?php echo $edit == false ?  '<button type="submit" name="edit">Modifier</button>' : '<button type="submit" name="save">Enregistrer</button>' ?>
                                     <a href="/?page=bookedevents&event_id=<?= $event['event_id'] ?>">Annuler</a>
                                 </nav>
                             </td>
