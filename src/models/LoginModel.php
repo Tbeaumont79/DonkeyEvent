@@ -1,4 +1,8 @@
 <?php
+
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+use Exception;
+use PDO;
 class LoginModel extends Model
 {
     private $email;

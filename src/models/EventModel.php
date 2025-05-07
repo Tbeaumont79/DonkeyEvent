@@ -1,5 +1,7 @@
 <?php
 
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+use PDO;
 interface EventCrud
 {
     public function create();
@@ -7,7 +9,6 @@ interface EventCrud
     public function update();
     public function delete();
 }
-require_once __DIR__ . '/model.php';
 class EventModel extends Model implements EventCrud
 {
     private $city;

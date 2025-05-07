@@ -1,5 +1,8 @@
 <?php
 
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+use PDO;
+
 interface BookedEventsCrud
 {
     public function read();

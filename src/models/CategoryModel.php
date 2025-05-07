@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/model.php';
+
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+use PDO;
+
 interface CategoryCrud
 {
     public function create();

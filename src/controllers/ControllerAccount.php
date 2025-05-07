@@ -1,5 +1,7 @@
 <?php
 
+namespace Thibaultbeaumont\DonkeyEvent\Controllers;
+
 class ControllerAccount extends Controller
 {
     public function __construct()

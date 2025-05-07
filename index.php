@@ -1,18 +1,20 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+
 if (!session_start()) {
     session_start();
 }
-require_once('controllers/Controller.php');
 
-require_once('controllers/ControllerRegister.php');
-require_once('controllers/ControllerLogin.php');
-require_once('controllers/ControllerFilters.php');
-require_once('controllers/ControllerEvent.php');
-require_once('controllers/ControllerBooking.php');
-require_once('controllers/ControllerBookedEvents.php');
-require_once('controllers/ControllerAccount.php');
+use Thibaultbeaumont\DonkeyEvent\Controllers\Controller;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerRegister;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerLogin;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerFilters;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerEvent;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBooking;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBookedEvents;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerAccount;
+
 if (!isset($_GET['page'])) {
-
     header('Location: index.php?page=login');
 }
 

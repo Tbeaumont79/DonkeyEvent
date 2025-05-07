@@ -1,6 +1,10 @@
 <?php
 
-require_once('model.php');
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+
+use Exception;
+use PDO;
+
 interface RoleCrudInterface
 {
     public function read();

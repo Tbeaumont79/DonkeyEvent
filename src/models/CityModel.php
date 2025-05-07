@@ -1,6 +1,7 @@
-
 <?php
-require_once __DIR__ . '/model.php';
+
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+use PDO;
 interface CityCrud
 {
     public function create();

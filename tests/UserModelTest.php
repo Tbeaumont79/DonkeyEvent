@@ -1,9 +1,8 @@
 <?php
 
-require_once(__DIR__ . '/../src/models/Model.php');
-require_once(__DIR__ . '/../src/models/UserModel.php');
-require_once(__DIR__ . '/../config/db.php');
+
 require_once(__DIR__ . '/../vendor/autoload.php');
+use Thibaultbeaumont\DonkeyEvent\Models\UserModel;
 
 use PHPUnit\Framework\TestCase;
 

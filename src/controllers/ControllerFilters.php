@@ -1,9 +1,12 @@
 <?php
 
-require_once(__DIR__ . '/../models/CityModel.php');
-require_once(__DIR__ . '/../models/CategoryModel.php');
-require_once(__DIR__ . '/../models/EventModel.php');
-class ControllerFilters
+namespace Thibaultbeaumont\DonkeyEvent\Controllers;
+
+use Thibaultbeaumont\DonkeyEvent\Models\CityModel;
+use Thibaultbeaumont\DonkeyEvent\Models\CategoryModel;
+use Thibaultbeaumont\DonkeyEvent\Models\EventModel;
+
+class ControllerFilters extends Controller
 {
     public function __construct() {}
 
@@ -15,6 +18,6 @@ class ControllerFilters
         $categories = $category->read();
         $event = new EventModel(null, null, null);
         $dates = $event->findEventsByDate();
-        require_once('views/FiltersView.php');
+        require_once(__DIR__ . '/../views/FiltersView.php');
     }
 }

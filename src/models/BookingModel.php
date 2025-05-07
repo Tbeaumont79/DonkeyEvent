@@ -1,4 +1,8 @@
 <?php
+
+namespace Thibaultbeaumont\DonkeyEvent\Models;
+use PDO;
+use Exception;
 class BookingModel extends Model
 {
     private $event_id;

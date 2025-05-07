@@ -1,5 +1,7 @@
 <?php
 
+namespace Thibaultbeaumont\DonkeyEvent\Controllers;
+
 class Controller
 {
     public function __construct() {}
@@ -30,9 +32,8 @@ class Controller
                 break;
 
             // case 'logout':
-            //     require_once('controllers/controllerLogout.php');
             //     $controller = new ControllerLogout();
-            //break;
+            //     break;
             default:
                 $controller = new ControllerLogin();
         }

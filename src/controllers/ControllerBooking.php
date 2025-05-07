@@ -1,6 +1,9 @@
 <?php
 
-require_once(__DIR__ . '/../models/BookingModel.php');
+namespace Thibaultbeaumont\DonkeyEvent\Controllers;
+
+use Thibaultbeaumont\DonkeyEvent\Models\BookingModel;
+
 class ControllerBooking extends Controller
 {
     public function __construct() {}

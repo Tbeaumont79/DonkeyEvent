@@ -1,13 +1,17 @@
 <?php
-require_once(__DIR__ . '/../models/RoleModel.php');
-require_once(__DIR__ . '/../models/UserModel.php');
+
+namespace Thibaultbeaumont\DonkeyEvent\Controllers;
+
+use Thibaultbeaumont\DonkeyEvent\Models\UserModel;
+use Thibaultbeaumont\DonkeyEvent\Models\RoleModel;
+
 class ControllerRegister extends Controller
 {
     public function __construct() {}
     public function start()
     {
         if (!isset($_POST['firstname']) || !isset($_POST['lastname']) || !isset($_POST['password']) || !isset($_POST['gender']) || !isset($_POST['e-mail']))
-            require_once('views/RegisterView.php');
+            require_once(__DIR__ . '/../views/RegisterView.php');
         else {
             $firstname = htmlentities($_POST['firstname']);
             $lastname = htmlentities($_POST['lastname']);

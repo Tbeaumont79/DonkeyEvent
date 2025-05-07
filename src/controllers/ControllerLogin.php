@@ -1,5 +1,9 @@
 <?php
-require_once('models/LoginModel.php');
+
+namespace Thibaultbeaumont\DonkeyEvent\Controllers;
+
+use Thibaultbeaumont\DonkeyEvent\Models\LoginModel;
+
 class ControllerLogin extends Controller
 {
     public function __construct() {}
@@ -8,7 +12,7 @@ class ControllerLogin extends Controller
         if (isset($_SESSION['user']) && $_SESSION['user'] != null)
             header('Location: index.php?page=filters');
         if (!isset($_POST['email']) || !isset($_POST['password']))
-            require_once('views/LoginView.php');
+            require_once(__DIR__ . '/../views/LoginView.php');
         else {
             $email = htmlentities($_POST['email']);
             $password = htmlentities($_POST['password']);
