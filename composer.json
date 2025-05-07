@@ -1,0 +1,17 @@
+{
+    "name": "thibaultbeaumont/donkey-event",
+    "autoload": {
+        "psr-4": {
+            "Thibaultbeaumont\\DonkeyEvent\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tbeaumont79",
+            "email": "tbeaumont79@icloud.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^12"
+    }
+}

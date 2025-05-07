@@ -28,6 +28,7 @@ class Controller
             case 'account':
                 $controller = new ControllerAccount();
                 break;
+
             // case 'logout':
             //     require_once('controllers/controllerLogout.php');
             //     $controller = new ControllerLogout();

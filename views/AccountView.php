@@ -15,7 +15,6 @@
     </section>
     <main>
         <section class="container2">
-
             <div class="infos">
                 <h2 class="infosClient">Infos client</h2>
                 <p class="prénom"><strong>Prénom : </strong><?php echo $_SESSION['user']['firstname']; ?></p>

@@ -15,5 +15,6 @@ if (!isset($_GET['page'])) {
 
     header('Location: index.php?page=login');
 }
+
 $controller = Controller::chooseCtrl();
 $controller->start();
