@@ -17,7 +17,6 @@ class ControllerRegister extends Controller
     public function start()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $errors = $this->userValidator->validateRegister($_POST);
             if (!empty($errors)) {
                 require_once(__DIR__ . '/../views/RegisterView.php');

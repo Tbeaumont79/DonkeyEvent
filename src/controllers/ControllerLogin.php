@@ -3,22 +3,37 @@
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
 use Thibaultbeaumont\DonkeyEvent\Models\LoginModel;
+use Thibaultbeaumont\DonkeyEvent\Services\UserService;
+use Thibaultbeaumont\DonkeyEvent\Validators\UserValidator;
 
 class ControllerLogin extends Controller
 {
-    public function __construct() {}
+    private UserValidator $userValidator;
+    private UserService $userService;
+    public function __construct(UserService $userService, UserValidator $userValidator)
+    {
+        $this->userValidator = $userValidator;
+        $this->userService = $userService;
+    }
     public function start()
     {
-        if (isset($_SESSION['user']) && $_SESSION['user'] != null)
-            header('Location: index.php?page=filters');
-        if (!isset($_POST['email']) || !isset($_POST['password']))
-            require_once(__DIR__ . '/../views/LoginView.php');
-        else {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $errors = $this->userValidator->validateLogin($_POST);
+            if (!empty($errors)) {
+                require_once(__DIR__ . '/../views/LoginView.php');
+                return;
+            }
             $email = htmlentities($_POST['email']);
             $password = htmlentities($_POST['password']);
-            $loginModel = new LoginModel($email, $password);
-            $loginModel->login();
-            header('Location: index.php?page=filters');
+            $userId = $this->userService->login($email, $password);
+            if ($userId) {
+                $_SESSION['user'] = $userId;
+                header('Location: index.php?page=filters');
+                exit();
+            } else {
+                $errors[] = "Invalid username or password.";
+            }
         }
+        require_once(__DIR__ . '/../views/LoginView.php');
     }
 }

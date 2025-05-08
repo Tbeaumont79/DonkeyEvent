@@ -23,7 +23,7 @@ class UserService
     public function register(array $user, string $userRole): int
     {
         $roleId = $this->createUserRole($userRole);
-        return $this->userModel->create($user['firstname'], $user['lastname'], $user['email'], $user['gender'], $user['password'], $roleId);
+        return $this->userModel->create(htmlentities($user['firstname']), htmlentities($user['lastname']), htmlentities($user['password']), htmlentities($user['gender']), htmlentities($user['email']), $roleId);
     }
     public function login(string $email, string $password): bool
     {
