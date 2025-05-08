@@ -6,11 +6,11 @@ use Exception;
 
 class Model
 {
-    public $pdo;
+    protected $pdo;
 
-    public function __construct()
+    public function __construct(PDO $pdo)
     {
-        $this->pdo = $this->connectToDb();
+        $this->pdo = $pdo;
     }
 
     public function getPdo()

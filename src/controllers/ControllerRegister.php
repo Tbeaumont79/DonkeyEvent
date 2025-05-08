@@ -2,28 +2,32 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
-use Thibaultbeaumont\DonkeyEvent\Models\UserModel;
-use Thibaultbeaumont\DonkeyEvent\Models\RoleModel;
+use Thibaultbeaumont\DonkeyEvent\Validators\UserValidator;
+use Thibaultbeaumont\DonkeyEvent\Services\UserService;
 
 class ControllerRegister extends Controller
 {
-    public function __construct() {}
+    private UserValidator $userValidator;
+    private UserService $userService;
+    public function __construct(UserService $userService, UserValidator $userValidator)
+    {
+        $this->userValidator = $userValidator;
+        $this->userService = $userService;
+    }
     public function start()
     {
-        if (!isset($_POST['firstname']) || !isset($_POST['lastname']) || !isset($_POST['password']) || !isset($_POST['gender']) || !isset($_POST['e-mail']))
-            require_once(__DIR__ . '/../views/RegisterView.php');
-        else {
-            $firstname = htmlentities($_POST['firstname']);
-            $lastname = htmlentities($_POST['lastname']);
-            $password = htmlentities($_POST['password']);
-            $gender = htmlentities($_POST['gender']);
-            $email = htmlentities($_POST['e-mail']);
-            $role = new RoleModel();
-            $role_id = $role->create('member');
-            $user = new UserModel();
-            $currentUser = $user->create($firstname, $lastname, $password, $gender, $email, $role_id);
-            $_SESSION['user'] = $currentUser;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $errors = $this->userValidator->validateRegister($_POST);
+            if (!empty($errors)) {
+                require_once(__DIR__ . '/../views/RegisterView.php');
+                return;
+            }
+            $userId = $this->userService->register($_POST, "member");
+            $_SESSION['user'] = $userId;
             header('Location: index.php?page=filters');
+            exit();
         }
+        require_once(__DIR__ . '/../views/RegisterView.php');
     }
 }

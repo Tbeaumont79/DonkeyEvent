@@ -2,6 +2,10 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
+use Thibaultbeaumont\DonkeyEvent\validators\UserValidator;
+use Thibaultbeaumont\DonkeyEvent\Services\UserService;
+use Thibaultbeaumont\DonkeyEvent\Models\UserModel;
+
 class Controller
 {
     public function __construct() {}
@@ -9,9 +13,14 @@ class Controller
     static public function chooseCtrl()
     {
         switch ($_GET['page']) {
-            case 'register':
-                $controller = new ControllerRegister();
-                break;
+            // case 'register': {
+            //         $userValidator = new UserValidator();
+            //         $userModel = new UserModel();
+            //         $userService = new UserService($userModel);
+            //         $controller = new ControllerRegister($userValidator, $userService);
+            //         break;
+            //     }
+
             case 'login':
                 $controller = new ControllerLogin();
                 break;

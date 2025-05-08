@@ -12,11 +12,12 @@ interface RoleCrudInterface
     public function update($role_id, $role_name);
     public function delete($role_id);
 }
-class RoleModel extends Model implements RoleCrudInterface
+class RoleModel implements RoleCrudInterface
 {
-    public function __construct()
+    private PDO $pdo;
+    public function __construct(PDO $pdo)
     {
-        parent::__construct();
+        $this->pdo = $pdo;
     }
 
     public function read()

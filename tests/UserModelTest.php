@@ -4,14 +4,14 @@
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 use Thibaultbeaumont\DonkeyEvent\Models\UserModel;
-
 use PHPUnit\Framework\TestCase;
 
 final class UserModelTest extends TestCase
 {
     public function  testreadTest(): void
     {
-        $userModel = new UserModel();
+        $container = require_once(__DIR__ . '/../src/bootstrap.php');
+        $userModel = new UserModel($container['pdo']);
         $user = $userModel->read(1);
 
         $this->assertNotEmpty($user, "User should not be empty");

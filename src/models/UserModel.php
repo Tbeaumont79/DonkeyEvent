@@ -5,16 +5,18 @@ namespace Thibaultbeaumont\DonkeyEvent\Models;
 interface UserCrudInterface
 {
     public function read($user_id);
+    public function readByEmail($email);
     public function create($firstname, $lastname, $password, $gender, $email, $role_id);
     public function update();
     public function delete($user_id);
 }
-class UserModel extends Model implements UserCrudInterface
+class UserModel implements UserCrudInterface
 {
+    private \PDO $pdo;
 
-    public function __construct()
+    public function __construct(\PDO $pdo)
     {
-        parent::__construct();
+        $this->pdo = $pdo;
     }
     public function read($user_id)
     {
@@ -24,8 +26,15 @@ class UserModel extends Model implements UserCrudInterface
         $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
-
-    public function create($firstname, $lastname, $password, $gender, $email, $role_id)
+    public function readByEmail($email)
+    {
+        $query = "SELECT * FROM users WHERE email = :email";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+    public function create($firstname, $lastname, $password, $gender, $email, $role_id): int
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (firstname, lastname, password, gender, email, role_id) VALUES (:firstname, :lastname, :password, :gender, :email, :role_id)";
@@ -41,6 +50,7 @@ class UserModel extends Model implements UserCrudInterface
         if (!$result) {
             throw new \Exception("registerModel: Error adding new user");
         }
+        return (int)$this->pdo->lastInsertId();
     }
     public function update() {}
     public function delete($user_id) {}
