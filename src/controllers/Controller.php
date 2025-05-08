@@ -30,7 +30,9 @@ class Controller
             case 'account':
                 $controller = new ControllerAccount();
                 break;
-
+            case 'logout':
+                $controller = new ControllerLogout();
+                break;
             // case 'logout':
             //     $controller = new ControllerLogout();
             //     break;

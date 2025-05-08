@@ -6,15 +6,8 @@ if (!session_start()) {
 }
 
 use Thibaultbeaumont\DonkeyEvent\Controllers\Controller;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerRegister;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerLogin;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerFilters;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerEvent;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBooking;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBookedEvents;
-use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerAccount;
 
-if (!isset($_GET['page'])) {
+if (!isset($_GET['page']) || empty($_SESSION['user'])) {
     header('Location: index.php?page=login');
 }
 

@@ -20,5 +20,5 @@ class ControllerLogin extends Controller
             $loginModel->login();
             header('Location: index.php?page=filters');
         }
-    }   
+    }
 }
