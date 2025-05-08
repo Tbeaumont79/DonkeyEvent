@@ -1,16 +1,15 @@
 <?php
 
 namespace Thibaultbeaumont\DonkeyEvent\Models;
-use PDO;
-use Exception;
-class BookingModel extends Model
+
+class BookingModel
 {
-    private $event_id;
-    private $category_id;
-    public function __construct($event_id)
+    private int $event_id;
+    private int $category_id;
+    private \PDO $pdo;
+    public function __construct(\PDO $pdo)
     {
-        parent::__construct();
-        $this->event_id = $event_id;
+        $this->pdo = $pdo;
     }
     public function setCategoryId($category_id)
     {
@@ -20,38 +19,32 @@ class BookingModel extends Model
     {
         return $this->category_id;
     }
-    public function getCategoryName()
+    public function getCategoryName(): string
     {
         $query = "SELECT name FROM category WHERE id = :category_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':category_id', $this->event_id, PDO::PARAM_INT);
+        $stmt->bindParam(':category_id', $this->event_id, \PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchColumn();
+        return $stmt->fetchColumn()['name'];
     }
-    public function getEventDetails()
+    public function getEventDetails(): array
     {
         $query = "SELECT * FROM events WHERE id = :event_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':event_id', $this->event_id, PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $this->event_id, \PDO::PARAM_INT);
         $stmt->execute();
-        $event = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (!$event) {
-            throw new Exception("Event not found");
-        }
+        $event = $stmt->fetch(\PDO::FETCH_ASSOC);
+
         $this->setCategoryId($event['category_id']);
         return $event;
     }
 
-    public function getAllOptions()
+    public function getAllOptions(): array
     {
         $query = "SELECT * FROM options where event_id = :event_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':event_id', $this->event_id, PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $this->event_id, \PDO::PARAM_INT);
         $stmt->execute();
-        $options = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (!$options) {
-            throw new Exception("Options not found");
-        }
-        return $options;
+        return  $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

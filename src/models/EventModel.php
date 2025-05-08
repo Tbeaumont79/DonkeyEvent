@@ -14,6 +14,7 @@ interface EventCrud
 class EventModel implements EventCrud
 {
     private \PDO $pdo;
+
     public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
@@ -39,7 +40,7 @@ class EventModel implements EventCrud
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    public function findEventByFilters(string $city, string $category, DateTime $date): array
+    public function findEventByFilters(string $city, string $category, $date): array
     {
         $query = "SELECT * FROM events WHERE city = :city AND category = :category AND date_event = :date_event";
         $stmt = $this->pdo->prepare($query);
