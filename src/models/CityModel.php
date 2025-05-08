@@ -1,38 +1,30 @@
 <?php
-
 namespace Thibaultbeaumont\DonkeyEvent\Models;
-use PDO;
 interface CityCrud
 {
     public function create();
-    public function read();
+    public function read(): array;
     public function update();
     public function delete();
 }
 
 
-class CityModel extends Model implements CityCrud
+class CityModel implements CityCrud
 {
-    public function create() {}
-
-    public function __construct()
+    private \PDO $pdo;
+    public function __construct(\PDO $pdo)
     {
-        parent::__construct();
+        $this->pdo = $pdo;
     }
-
-    public function read()
+    public function create() {}
+    public function read(): array
     {
         $query = "SELECT * FROM city WHERE id IN (SELECT MIN(id) FROM city GROUP BY name);";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
-        $cities = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $cities;
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function update() {}
     public function delete() {}
 }
-
-?>
-
-

@@ -10,7 +10,7 @@ use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerFilters;
 $routes = [
     'register' => fn() => new ControllerRegister($container['userService'], $container['userValidator']),
     'login' => fn() => new ControllerLogin($container['userService'], $container['userValidator']),
-    //  'filters' => fn() => new ControllerFilters(),
+    'filters' => fn() => new ControllerFilters($container['filterService'], $container['filterValidator']),
 ];
 $page = $_GET['page'] ?? 'login';
 $controller = $routes[$page] ?? $routes['login'];

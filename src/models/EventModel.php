@@ -1,26 +1,22 @@
 <?php
 
 namespace Thibaultbeaumont\DonkeyEvent\Models;
-use PDO;
+
+use DateTime;
+
 interface EventCrud
 {
     public function create();
-    public function read();
+    public function read(): array;
     public function update();
     public function delete();
 }
-class EventModel extends Model implements EventCrud
+class EventModel implements EventCrud
 {
-    private $city;
-    private $date;
-    private $category;
-    private $events;
-    public function __construct($city, $date, $category)
+    private \PDO $pdo;
+    public function __construct(\PDO $pdo)
     {
-        parent::__construct();
-        $this->city = $city;
-        $this->date = $date;
-        $this->category = $category;
+        $this->pdo = $pdo;
     }
     protected function getIdByName($table, $name)
     {
@@ -28,40 +24,37 @@ class EventModel extends Model implements EventCrud
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         if ($result) {
             return $result['id'];
         } else {
             return null;
         }
     }
-    public function findEventsByDate()
+    public function findEventsByDate(DateTime $date): array
     {
         $query = "SELECT * FROM events WHERE date_event = :date_event";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':date_event', $this->date);
+        $stmt->bindParam(':date_event', $date);
         $stmt->execute();
-        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $events;
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    public function read()
+    public function findEventByFilters(string $city, string $category, DateTime $date): array
     {
-        if (!$this->findEventsByDate())
-            return false;
-        $cityId = $this->getIdByName('city', $this->city);
-        $categoryId = $this->getIdByName('category', $this->category);
-        $query = "SELECT e.*, c.name AS city_name, cat.name AS category_name
-                  FROM events e
-                  JOIN city c ON e.city_id = c.id
-                  JOIN category cat ON e.category_id = cat.id
-                  WHERE c.id = :city_id AND e.date_event = :date_event AND cat.id = :category_id";
+        $query = "SELECT * FROM events WHERE city = :city AND category = :category AND date_event = :date_event";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':city_id', $cityId);
-        $stmt->bindParam(':date_event', $this->date);
-        $stmt->bindParam(':category_id', $categoryId);
+        $stmt->bindParam(':city', $city);
+        $stmt->bindParam(':category', $category);
+        $stmt->bindParam(':date_event', $date);
         $stmt->execute();
-        $this->events = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $this->events;
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function read(): array
+    {
+        $query = "SELECT * FROM events";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     public function create() {}
     public function update() {}

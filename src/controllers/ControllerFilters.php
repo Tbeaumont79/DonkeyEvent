@@ -2,22 +2,34 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
-use Thibaultbeaumont\DonkeyEvent\Models\CityModel;
-use Thibaultbeaumont\DonkeyEvent\Models\CategoryModel;
-use Thibaultbeaumont\DonkeyEvent\Models\EventModel;
+use Thibaultbeaumont\DonkeyEvent\Validators\FilterValidator;
+use Thibaultbeaumont\DonkeyEvent\Services\FilterService;
 
 class ControllerFilters extends Controller
 {
-    public function __construct() {}
+    private FilterValidator $filterValidator;
+    private FilterService $filterService;
+    private array $filters = [];
+    private array $errors = [];
 
+    public function __construct(FilterService $filterService, FilterValidator $filterValidator)
+    {
+        $this->filterValidator = $filterValidator;
+        $this->filterService = $filterService;
+    }
     public function start()
     {
-        $city = new CityModel();
-        $cities = $city->read();
-        $category = new CategoryModel();
-        $categories = $category->read();
-        $event = new EventModel(null, null, null);
-        $dates = $event->findEventsByDate();
+        $cities = $this->filterService->getCities();
+        $categories = $this->filterService->getCategories();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->errors = $this->filterValidator->validate($_POST);
+            if (!empty($errors)) {
+                $this->errors = $errors;
+                require_once(__DIR__ . '/../views/FiltersView.php');
+            }
+            $this->filters = $this->filterService->getFilterData($_POST);
+        }
         require_once(__DIR__ . '/../views/FiltersView.php');
     }
 }

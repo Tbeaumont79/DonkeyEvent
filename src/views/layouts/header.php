@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $navElement = [
     'Mon Compte' => '/?page=account',
     'Mes réservations' => '/?page=bookedevents',

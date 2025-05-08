@@ -1,31 +1,30 @@
 <?php
 
 namespace Thibaultbeaumont\DonkeyEvent\Models;
-use PDO;
 
 interface CategoryCrud
 {
     public function create();
-    public function read();
+    public function read(): array;
     public function update();
     public function delete();
 }
 
-class CategoryModel extends Model implements CategoryCrud
+class CategoryModel implements CategoryCrud
 {
-
-    public function __construct()
+    private \PDO $pdo;
+    public function __construct(\PDO $pdo)
     {
-        parent::__construct();
+        $this->pdo = $pdo;
     }
+
     public function create() {}
-    public function read()
+    public function read(): array
     {
         $query = "SELECT name FROM category";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
-        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $categories;
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function update() {}

@@ -2,7 +2,6 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
-use Thibaultbeaumont\DonkeyEvent\Models\LoginModel;
 use Thibaultbeaumont\DonkeyEvent\Services\UserService;
 use Thibaultbeaumont\DonkeyEvent\Validators\UserValidator;
 
@@ -27,7 +26,6 @@ class ControllerLogin extends Controller
             $password = htmlentities($_POST['password']);
             $userId = $this->userService->login($email, $password);
             if ($userId) {
-                $_SESSION['user'] = $userId;
                 header('Location: index.php?page=filters');
                 exit();
             } else {
