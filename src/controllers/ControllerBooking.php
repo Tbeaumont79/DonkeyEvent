@@ -4,22 +4,24 @@ namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
 use Thibaultbeaumont\DonkeyEvent\Models\BookingModel;
 
-class ControllerBooking extends Controller
+class ControllerBooking
 {
-    public function __construct() {}
+    private BookingModel $bookingModel;
+    public function __construct(BookingModel $bookingModel)
+    {
+        $this->bookingModel = $bookingModel;
+    }
 
     public function start()
     {
 
         if (!$_SERVER['REQUEST_METHOD'] === 'POST' && !$_GET['event_id']) {
-            die('je passe ici et wtf 2 ctrl booking? ');
             header('Location: index.php?page=events');
         } else {
             $event_id = $_GET['event_id'];
-            $bookingModel = new BookingModel($event_id);
-            $eventDetails = $bookingModel->getEventDetails();
-            $categoryName = $bookingModel->getCategoryName();
-            $options = $bookingModel->getAllOptions();
+            $eventDetails = $this->bookingModel->getEventDetails($event_id);
+            $categoryName = $this->bookingModel->getCategoryName($event_id);
+            $options = $this->bookingModel->getAllOptions($event_id);
             require_once(__DIR__ . '/../views/BookingView.php');
         }
     }

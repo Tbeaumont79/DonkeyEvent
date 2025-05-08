@@ -42,10 +42,16 @@ class EventModel implements EventCrud
     }
     public function findEventByFilters(string $city, string $category, $date): array
     {
-        $query = "SELECT * FROM events WHERE city = :city AND category = :category AND date_event = :date_event";
+        $cityId = $this->getIdByName('city', $city);
+        $categoryId = $this->getIdByName('category', $category);
+        $query = "SELECT e.*, c.name AS city_name, cat.name AS category_name
+                  FROM events e
+                  JOIN city c ON e.city_id = c.id
+                  JOIN category cat ON e.category_id = cat.id
+                  WHERE c.id = :city_id AND e.date_event = :date_event AND cat.id = :category_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':city', $city);
-        $stmt->bindParam(':category', $category);
+        $stmt->bindParam(':city_id', $cityId);
+        $stmt->bindParam(':category_id', $categoryId);
         $stmt->bindParam(':date_event', $date);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);

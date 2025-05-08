@@ -4,7 +4,6 @@ namespace Thibaultbeaumont\DonkeyEvent\Models;
 
 class BookingModel
 {
-    private int $event_id;
     private int $category_id;
     private \PDO $pdo;
     public function __construct(\PDO $pdo)
@@ -19,19 +18,19 @@ class BookingModel
     {
         return $this->category_id;
     }
-    public function getCategoryName(): string
+    public function getCategoryName(int $event_id): string
     {
         $query = "SELECT name FROM category WHERE id = :category_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':category_id', $this->event_id, \PDO::PARAM_INT);
+        $stmt->bindParam(':category_id', $event_id, \PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchColumn()['name'];
+        return $stmt->fetchColumn();
     }
-    public function getEventDetails(): array
+    public function getEventDetails(int $event_id): array
     {
         $query = "SELECT * FROM events WHERE id = :event_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':event_id', $this->event_id, \PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $event_id, \PDO::PARAM_INT);
         $stmt->execute();
         $event = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -39,11 +38,11 @@ class BookingModel
         return $event;
     }
 
-    public function getAllOptions(): array
+    public function getAllOptions(int $event_id): array
     {
         $query = "SELECT * FROM options where event_id = :event_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':event_id', $this->event_id, \PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $event_id, \PDO::PARAM_INT);
         $stmt->execute();
         return  $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="options-form">
-                <form method="post" action="/?page=bookedevents">
+                <form method="post" action="/?page=bookedEvents">
                     <?php foreach ($options as $option) : ?>
                         <label for="<?= $option['id'] ?>"><?= $option['name'] ?> <span><?= $option['price'] ?> euros</span>:</label>
                         <input type="checkbox" id="<?= $option['id'] ?>" name="option[<?= $option['id'] ?>]" value="<?= $option['price'] ?>">

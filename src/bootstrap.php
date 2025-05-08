@@ -5,6 +5,8 @@ use Thibaultbeaumont\DonkeyEvent\Models\RoleModel;
 use Thibaultbeaumont\DonkeyEvent\Models\CityModel;
 use Thibaultbeaumont\DonkeyEvent\Models\CategoryModel;
 use Thibaultbeaumont\DonkeyEvent\Models\EventModel;
+use Thibaultbeaumont\DonkeyEvent\Models\BookingModel;
+use Thibaultbeaumont\DonkeyEvent\Models\BookedEventsModel;
 use Thibaultbeaumont\DonkeyEvent\Services\FilterService;
 use Thibaultbeaumont\DonkeyEvent\Validators\FilterValidator;
 use Thibaultbeaumont\DonkeyEvent\Services\UserService;
@@ -21,7 +23,8 @@ $roleModel = new RoleModel($pdo);
 $cityModel = new CityModel($pdo);
 $categoryModel = new CategoryModel($pdo);
 $eventModel = new EventModel($pdo);
-
+$bookingModel = new BookingModel($pdo);
+$bookedEventsModel = new BookedEventsModel($pdo);
 $filterValidator = new FilterValidator();
 $userValidator = new UserValidator();
 
@@ -35,6 +38,8 @@ return [
     'cityModel' => $cityModel,
     'categoryModel' => $categoryModel,
     'eventModel' => $eventModel,
+    'bookingModel' => $bookingModel,
+    'bookedEventsModel' => $bookedEventsModel,
     'filterService' => $filterService,
     'userService' => $userService,
     'filterValidator' => $filterValidator,

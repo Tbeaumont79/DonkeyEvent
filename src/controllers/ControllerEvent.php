@@ -2,8 +2,6 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
-use DateTime;
-use PHPUnit\Event\Event;
 use Thibaultbeaumont\DonkeyEvent\Models\EventModel;
 
 class ControllerEvent extends Controller
@@ -19,7 +17,7 @@ class ControllerEvent extends Controller
         if (!isset($_POST['city']) || !isset($_POST['date']) || !isset($_POST['category'])) {
             header('Location: index.php?page=filters');
         } else {
-            $events = $this->eventsModel->findEventByFilters(htmlentities($_POST['city']), htmlentities($_POST['category']), $event_date);
+            $events = $this->eventsModel->findEventByFilters(htmlentities($_POST['city']), htmlentities($_POST['category']), $_POST['date']);
             require_once(__DIR__ . '/../views/EventsView.php');
         }
     }

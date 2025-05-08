@@ -2,7 +2,7 @@
 session_start();
 $navElement = [
     'Mon Compte' => '/?page=account',
-    'Mes réservations' => '/?page=bookedevents',
+    'Mes réservations' => '/?page=bookedEvents',
     'Trouver un évènement' => '/?page=filters',
 ];
 $title = "DONKEYEVENT";
