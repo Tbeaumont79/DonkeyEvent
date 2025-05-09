@@ -29,7 +29,7 @@ if (isset($_POST['edit'])) {
                         <th>Date</th>
                         <th>Actions</th>
                     </tr>
-                    <form method="post" action="/?page=bookedevents">
+                    <form method="post" action="/?page=bookedEvents">
 
                         <?php if (isset($bookedEvents) && $bookedEvents != null) { ?>
                             <?php foreach ($bookedEvents as $event) : ?>
