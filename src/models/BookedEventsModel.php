@@ -31,7 +31,7 @@ class BookedEventsModel implements BookedEventsCrud
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    public function create(int $event_id, int $user_id,  $event_date): void
+    public function create(int $event_id, int $user_id, $event_date): void
     {
         $query = "INSERT INTO bookedEvents (user_id, event_id, booking_date) VALUES (:user_id, :event_id, :booking_date)";
         $stmt = $this->pdo->prepare($query);

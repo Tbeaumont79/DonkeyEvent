@@ -12,6 +12,7 @@ use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBookedEvents;
 use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerAccount;
 use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerLogout;
 
+use function PHPUnit\Framework\isEmpty;
 
 $routes = [
     'register' => fn() => new ControllerRegister($container['userService'], $container['userValidator']),
@@ -25,5 +26,6 @@ $routes = [
 ];
 $page = $_GET['page'] ?? 'login';
 $controller = $routes[$page] ?? $routes['login'];
+$controller = !$_SESSION || !isset($_SESSION) && isEmpty($_SESSION) ? $routes['login'] : $routes[$page];
 $controller = $controller();
 $controller->start();

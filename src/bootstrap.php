@@ -29,6 +29,7 @@ $categoryModel = new CategoryModel($pdo);
 $eventModel = new EventModel($pdo);
 $bookingModel = new BookingModel($pdo);
 $bookedEventsModel = new BookedEventsModel($pdo);
+
 $filterValidator = new FilterValidator();
 $userValidator = new UserValidator();
 

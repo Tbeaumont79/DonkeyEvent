@@ -27,6 +27,7 @@ class ControllerFilters
             if (!empty($errors)) {
                 $this->errors = $errors;
                 require_once(__DIR__ . '/../views/FiltersView.php');
+                exit();
             }
             $this->filters = $this->filterService->getFilterData($_POST);
         }
