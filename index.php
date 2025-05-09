@@ -15,8 +15,8 @@ $routes = [
     'login' => fn() => new ControllerLogin($container['userService'], $container['userValidator']),
     'filters' => fn() => new ControllerFilters($container['filterService'], $container['filterValidator']),
     'events' => fn() => new ControllerEvent($container['eventModel']),
-    'booking' => fn() => new ControllerBooking($container['bookingModel']),
-    'bookedEvents' => fn() => new ControllerBookedEvents($container['bookedEventsModel']),
+    'booking' => fn() => new ControllerBooking($container['bookingService']),
+    'bookedEvents' => fn() => new ControllerBookedEvents($container['bookingService']),
 ];
 $page = $_GET['page'] ?? 'login';
 $controller = $routes[$page] ?? $routes['login'];

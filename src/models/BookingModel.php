@@ -4,45 +4,42 @@ namespace Thibaultbeaumont\DonkeyEvent\Models;
 
 class BookingModel
 {
-    private int $category_id;
+    private int $categoryId;
     private \PDO $pdo;
     public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
-    public function setCategoryId($category_id)
+    public function setCategoryId($categoryId)
     {
-        $this->category_id = $category_id;
+        $this->categoryId = $categoryId;
     }
     public function getCategoryId()
     {
-        return $this->category_id;
+        return $this->categoryId;
     }
-    public function getCategoryName(int $event_id): string
+    public function getCategoryName(int $categoryId): string
     {
         $query = "SELECT name FROM category WHERE id = :category_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':category_id', $event_id, \PDO::PARAM_INT);
+        $stmt->bindParam(':category_id', $categoryId, \PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
     }
-    public function getEventDetails(int $event_id): array
+    public function getEventDetails(int $eventId): array
     {
         $query = "SELECT * FROM events WHERE id = :event_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':event_id', $event_id, \PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $eventId, \PDO::PARAM_INT);
         $stmt->execute();
-        $event = $stmt->fetch(\PDO::FETCH_ASSOC);
-
-        $this->setCategoryId($event['category_id']);
-        return $event;
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function getAllOptions(int $event_id): array
+    public function getAllOptions(int $eventId): array
     {
         $query = "SELECT * FROM options where event_id = :event_id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':event_id', $event_id, \PDO::PARAM_INT);
+        $stmt->bindParam(':event_id', $eventId, \PDO::PARAM_INT);
         $stmt->execute();
         return  $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

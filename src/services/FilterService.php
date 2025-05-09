@@ -5,7 +5,6 @@ namespace Thibaultbeaumont\DonkeyEvent\Services;
 use Thibaultbeaumont\DonkeyEvent\Models\EventModel;
 use Thibaultbeaumont\DonkeyEvent\Models\CityModel;
 use Thibaultbeaumont\DonkeyEvent\Models\CategoryModel;
-use InvalidArgumentException;
 
 class FilterService
 {
