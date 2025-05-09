@@ -40,7 +40,7 @@ if (isset($_POST['edit'])) {
                                     <td>
                                         <nav class="nav-booking">
                                             <?php echo $edit == false ?  '<button type="submit" name="edit">Modifier</button>' : '<button type="submit" name="save">Enregistrer</button>' ?>
-                                            <a href="/?page=bookedevents&event_id=<?= $event['event_id'] ?>">Annuler</a>
+                                            <a href="/?page=bookedEvents&event_id=<?= $event['event_id'] ?>">Annuler</a>
                                         </nav>
                                     </td>
                                 </tr>
