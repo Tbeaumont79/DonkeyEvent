@@ -9,6 +9,7 @@ use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerFilters;
 use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerEvent;
 use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBooking;
 use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerBookedEvents;
+use Thibaultbeaumont\DonkeyEvent\Controllers\ControllerAccount;
 
 $routes = [
     'register' => fn() => new ControllerRegister($container['userService'], $container['userValidator']),
@@ -17,6 +18,7 @@ $routes = [
     'events' => fn() => new ControllerEvent($container['eventModel']),
     'booking' => fn() => new ControllerBooking($container['bookingService']),
     'bookedEvents' => fn() => new ControllerBookedEvents($container['bookingService']),
+    'account' => fn() => new ControllerAccount()
 ];
 $page = $_GET['page'] ?? 'login';
 $controller = $routes[$page] ?? $routes['login'];

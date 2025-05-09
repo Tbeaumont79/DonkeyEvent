@@ -2,19 +2,14 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
-class ControllerAccount extends Controller
+class ControllerAccount
 {
     public function __construct()
     {
-        parent::__construct();
     }
 
     public function start()
     {
-        if (!isset($_SESSION['user'])) {
-            header('Location: index.php?page=login');
-        } else {
-            require_once(__DIR__ . '/../views/AccountView.php');
-        }
+        require_once(__DIR__ . '/../views/AccountView.php');
     }
 }
