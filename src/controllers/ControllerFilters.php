@@ -5,7 +5,7 @@ namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 use Thibaultbeaumont\DonkeyEvent\Validators\FilterValidator;
 use Thibaultbeaumont\DonkeyEvent\Services\FilterService;
 
-class ControllerFilters extends Controller
+class ControllerFilters
 {
     private FilterValidator $filterValidator;
     private FilterService $filterService;

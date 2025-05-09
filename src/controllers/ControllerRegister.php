@@ -5,7 +5,7 @@ namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 use Thibaultbeaumont\DonkeyEvent\Validators\UserValidator;
 use Thibaultbeaumont\DonkeyEvent\Services\UserService;
 
-class ControllerRegister extends Controller
+class ControllerRegister
 {
     private UserValidator $userValidator;
     private UserService $userService;

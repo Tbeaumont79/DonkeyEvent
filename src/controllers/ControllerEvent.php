@@ -4,7 +4,7 @@ namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
 use Thibaultbeaumont\DonkeyEvent\Models\EventModel;
 
-class ControllerEvent extends Controller
+class ControllerEvent
 {
     private EventModel $eventsModel;
     public function __construct(EventModel $eventsModel)
