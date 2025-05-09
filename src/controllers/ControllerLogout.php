@@ -2,7 +2,7 @@
 
 namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
-class ControllerLogout extends Controller
+class ControllerLogout
 {
     public function __construct() {}
 

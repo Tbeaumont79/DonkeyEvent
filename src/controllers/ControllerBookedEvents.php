@@ -4,7 +4,7 @@ namespace Thibaultbeaumont\DonkeyEvent\Controllers;
 
 use Thibaultbeaumont\DonkeyEvent\services\BookingService;
 
-class ControllerBookedEvents extends Controller
+class ControllerBookedEvents
 {
     private BookingService $bookingService;
     public function __construct(BookingService $bookingService)
