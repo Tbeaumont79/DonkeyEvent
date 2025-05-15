@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class UserModelTest extends TestCase
 {
-    public function  testreadTest(): void
+    public function  testreadUser(): void
     {
         $container = require_once(__DIR__ . '/../src/bootstrap.php');
         $userModel = new UserModel($container['pdo']);
@@ -23,4 +23,5 @@ final class UserModelTest extends TestCase
         $this->assertArrayHasKey('role_id', $user, "User should have a role_id");
         $this->assertArrayHasKey('password', $user, "User should have a password");
     }
+    
 }
