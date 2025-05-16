@@ -26,7 +26,7 @@ class TestCreateUserAddsUserToDatabase extends PantherTestCase
             "lastname" => "thibault",
             "firstname" => "beaumont"
         ]);
-        $userModel = new \Thibaultbeaumont\DonkeyEvent\Models\UserModel($pdo);
+        $userModel = new UserModel($pdo);
         $user = $userModel->readByEmail($email);
         $this->assertNotNull($user, "L'utilisateur n'a pas été créé en base de données.");
         $this->assertStringContainsString('index.php?page=login', $client->getCurrentURL());
