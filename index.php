@@ -26,6 +26,6 @@ $routes = [
 ];
 $page = $_GET['page'] ?? 'login';
 $controller = $routes[$page] ?? $routes['login'];
-$controller = !$_SESSION || !isset($_SESSION) && isEmpty($_SESSION) ? $routes['login'] : $routes[$page];
+$controller = !$_SESSION && !$routes['register'] || (!isset($_SESSION) && isEmpty($_SESSION)) && $routes['register'] ? $routes['login'] : $routes[$page];
 $controller = $controller();
 $controller->start();
