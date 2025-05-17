@@ -23,20 +23,18 @@
                     </ul>
                 </div>
             <?php } ?>
-            <input type="email" id="e-mail" name="email" placeholder="Entrer votre e-mail">
-            <input type="password" id="mp" name="password" placeholder="Votre mot de passe">
+            <input type="email" id="email" name="email" placeholder="Entrer votre e-mail">
+            <input type="password" id="password" name="password" placeholder="Votre mot de passe">
             <select class="gender-select" name="gender" id="gender-select">
                 <option value="">choisissez un genre</option>
                 <option value="male">Homme</option>
                 <option value="female">Femme</option>
             </select>
-            <input type="text" name="lastname" id="nom" placeholder="nom">
-            <input type="text" id="Prenom" name="firstname" placeholder="Prenom">
+            <input type="text" name="lastname" id="lastname" placeholder="Nom">
+            <input type="text" id="firstname" name="firstname" placeholder="Prenom">
             <button class="cta" name="submit" type="submit">Valider</button>
         </form>
-
     </section>
-
 </body>
 
 </html>
